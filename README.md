@@ -21,3 +21,20 @@ pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## installed for insert article body
+npm i react-portable-text
+
+## react hook form
+npm i react-hook-form
+
+## installed for fetch comments
+npm i @sanity/client
+
+## command term1 
+npm run dev 
+
+## command term2
+cd sanityblog
+sanity start
+
