@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../components/Header';
+import Prova from '../components/Prova';
 import { sanityClient, urlFor } from '../sanity';
 import { Post } from '../typings';
 
@@ -48,6 +49,8 @@ export default function Home({ posts }: Props) {
           </Link>
         ))}
       </div>
+
+      <Prova />
     </div>
   )
 }
