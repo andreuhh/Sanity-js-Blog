@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { setEnvironmentData } from 'worker_threads';
 import { sanityClient, urlFor } from '../sanity';
 
@@ -10,18 +10,31 @@ import { sanityClient, urlFor } from '../sanity';
 function Prova() {
     const [articles, setArticles] = useState<any[]>([])
 
-    const fetchArticles = async () => {
-        const response = await fetch('https://api.cercacasa.it/api/articles')
-        const data = await response.json()
-        setArticles(data)
-    }
+    // const fetchArticles = async () => {
+    //     const response = await fetch('https://api.cercacasa.it/api/articles')
+    //     const data = await response.json()
+    //     setArticles(data)
+    // }
 
-    console.log(articles);
+    // console.log(articles);
+
+    useEffect(() => {
+        fetch(
+            'https://api.cercacasa.it/api/articles'
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                setArticles(data);
+            })
+            .catch(() => {
+                console.log("error");
+            });
+    }, []);
 
 
     return (
         <>
-            <button onClick={fetchArticles} className='bg-green-600 px-4 py-1 text-white rounded-full'>Fetch Data</button>
+            {/* <button onClick={fetchArticles} className='bg-green-600 px-4 py-1 text-white rounded-full'>Fetch Data</button> */}
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md-gap-6 p-2 md:p-6'>
 
                 {articles.map((art) => (
@@ -33,8 +46,6 @@ function Prova() {
                                 <p className='text-xs'>{art.excerpt}</p>
                             </div>
                             <img className='h-12 w-12 rounded-full' src={art.hero_img} alt="" />
-
-
                         </div>
                     </div>
                 ))}
