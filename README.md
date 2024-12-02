@@ -38,3 +38,4 @@ npm run dev
 cd sanityblog
 sanity start
 
+## link dashboard prod --> https://sabityblogandre.sanity.studio/desk
